@@ -4,7 +4,10 @@
 
 ### Docs
 * [Modal Popup Trends](https://npmtrends.com/lightbox-vs-magnific-popup-vs-micromodal-vs-tingle.js-vs-vanilla-modal-vs-vex-js)
-
+* [Micro Modal](https://github.com/ghosh/micromodal)
+* [Vanilla Modal](https://github.com/KaneCohen/modal-vanilla)
+* [Vex Modal ](https://github.com/HubSpot/vex)
+* [Tingle Modal](https://github.com/robinparisi/tingle)
 
 
 
