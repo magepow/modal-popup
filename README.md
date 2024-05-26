@@ -8,6 +8,7 @@
 * [Bootstrap Modal](https://github.com/jschr/bootstrap-modal)
 
 ### Vanilla Js
+* [Sweetalert](https://github.com/t4t5/sweetalert)
 * [Micro Modal](https://github.com/ghosh/micromodal)
 * [Vanilla Modal](https://github.com/KaneCohen/modal-vanilla)
 * [Vex Modal ](https://github.com/HubSpot/vex)

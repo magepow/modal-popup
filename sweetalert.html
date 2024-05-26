@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cicro Modal</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <style type="text/css">
+      
+    </style>
+    </head>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        var content = document.querySelector('#content');
+        Swal.fire({
+          html: `You can use <b>bold text</b>,
+            <a href="#">links</a>,
+            and other HTML tags`,
+          showCloseButton: true,
+          showCancelButton: false,
+          showConfirmButton: false,
+          didRender: function (){
+            console.log('didRender');
+          },
+          didOpen: function(){
+            console.log('open');
+          },
+          didClose: function(){
+            console.log('didClose');
+          }
+        }).then(
+            function () {},
+            // handling the promise rejection
+            function (dismiss) {
+              consolel.log('dismiss')
+              if (dismiss === 'timer') {
+                //console.log('I was closed by the timer')
+              }
+            }
+        )
+        Swal.fire({
+          html: content,
+          showCloseButton: true,
+          showCancelButton: false,
+          showConfirmButton: false,
+          didRender: function (){
+            console.log('didRender');
+          },
+          didOpen: function(){
+            console.log('open');
+          },
+          didClose: function(){
+            console.log('didClose');
+          }
+        }).then(
+            function () {},
+            // handling the promise rejection
+            function (dismiss) {
+              consolel.log('dismiss')
+              if (dismiss === 'timer') {
+                //console.log('I was closed by the timer')
+              }
+            }
+        )
+      });
+    </script>
+    <body>
+        <div id="content">
+          You can use <b>content HTML</b>,
+            <a href="#">links</a>
+        </div>
+    </body>
+</html>
