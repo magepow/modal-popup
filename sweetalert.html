@@ -38,30 +38,6 @@
               }
             }
         )
-        Swal.fire({
-          html: content,
-          showCloseButton: true,
-          showCancelButton: false,
-          showConfirmButton: false,
-          didRender: function (){
-            console.log('didRender');
-          },
-          didOpen: function(){
-            console.log('open');
-          },
-          didClose: function(){
-            console.log('didClose');
-          }
-        }).then(
-            function () {},
-            // handling the promise rejection
-            function (dismiss) {
-              consolel.log('dismiss')
-              if (dismiss === 'timer') {
-                //console.log('I was closed by the timer')
-              }
-            }
-        )
       });
     </script>
     <body>
