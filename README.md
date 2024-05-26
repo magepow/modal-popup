@@ -1,9 +1,13 @@
 [<img src="https://github.com/magepow/themeforest/blob/master/shopify/shopify_affiliate.jpg" >](https://shopify.pxf.io/VyL446)
 
 ## Modal Popup
-
-### Docs
 * [Modal Popup Trends](https://npmtrends.com/lightbox-vs-magnific-popup-vs-micromodal-vs-tingle.js-vs-vanilla-modal-vs-vex-js)
+
+### jQuery Js
+* [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup)
+* [Bootstrap Modal](https://github.com/jschr/bootstrap-modal)
+
+### Vanilla Js
 * [Micro Modal](https://github.com/ghosh/micromodal)
 * [Vanilla Modal](https://github.com/KaneCohen/modal-vanilla)
 * [Vex Modal ](https://github.com/HubSpot/vex)
