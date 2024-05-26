@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cicro Modal</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <style type="text/css">
+      
+    </style>
+    </head>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+          title: '<strong>Video</strong>',
+          width: 800,
+          html:
+            '<iframe width="660" height="415" src="https://www.youtube.com/embed/mI_9aMCieUM?si=VxV5O7dLiU9zYAB_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+          showCloseButton: true,
+          showCancelButton: false,
+          showConfirmButton: false,
+        })
+      });
+    </script>
+    <body>
+        <div id="content">
+          You can use <b>content HTML</b>,
+            <a href="#">links</a>
+        </div>
+    </body>
+</html>
