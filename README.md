@@ -1,7 +1,7 @@
 [<img src="https://github.com/magepow/themeforest/blob/master/shopify/shopify_affiliate.jpg" >](https://shopify.pxf.io/VyL446)
 
 ## Modal Popup
-* [Modal Popup Trends](https://npmtrends.com/lightbox-vs-magnific-popup-vs-micromodal-vs-tingle.js-vs-vanilla-modal-vs-vex-js)
+* [Modal Popup Trends](https://npmtrends.com/alertify.js-vs-alertifyjs-vs-fancybox-vs-lightbox-vs-magnific-popup-vs-micromodal-vs-sweetalert-vs-tingle.js-vs-vanilla-modal-vs-vex-js)
 
 ### jQuery Js
 * [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup)
