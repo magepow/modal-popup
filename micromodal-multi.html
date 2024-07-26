@@ -125,6 +125,8 @@
             awaitCloseAnimation: true,
             openClass: 'open'
           });
+          /* Close other before open new */
+          MicroModal.close();
           MicroModal.show('modal-2',{
             onShow: () => document.body.classList.add('howdy'),
             onClose: () => document.body.classList.remove('howdy'),
