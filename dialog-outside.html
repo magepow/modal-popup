@@ -5,9 +5,23 @@
     <meta charset="UTF-8">
     <title>Dialog HTML</title>
     <style  type="text/css">
+
+        .content {
+            height: 5000px;
+        }
+
         dialog  {
             animation:  fade-out  0.7s  ease-out;
             border: 1px solid red;
+        }
+
+        dialog {
+            padding: 0;
+        }
+
+        .dialog-box {
+            min-width: 800px;
+            min-height: 400px;
         }
 
         dialog[open]  {
@@ -75,13 +89,18 @@
         <p><a href="https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element">https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element</a></p>
         <p><a href="https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html">https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html</a></p>
         <p><a href="https://github.com/GoogleChrome/dialog-polyfill">Lib support old browser</a></p>
+       
+       <div class="content">
+            Testt
+        </div>
 
         <dialog id="dialog">
-            <div class="dialog-content">
+            <div class="dialog-box">
                 Content here
                 <button class="close">close</button>
             </div>
         </dialog>
+ 
 
         <button class="show">Show Modal</button>
         <script>
@@ -90,8 +109,14 @@
                 const showBtn = document.querySelector(".show");
                 const closeBtn  = document.querySelector(".close");
 
-                showBtn.addEventListener("click", ()  =>  {
-                    dialogElem.showModal();
+                dialogElem.showModal();
+
+                /* Close click outside dialog use css padding: 0px */
+                dialogElem.addEventListener("click", function(event){
+                    console.log(event.target)
+                    if (event.target === dialogElem) {
+                        dialogElem.close();
+                    }
                 });
 
                 closeBtn.addEventListener("click",  ()  =>  {
