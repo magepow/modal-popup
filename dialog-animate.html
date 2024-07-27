@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dialog HTML</title>
+  <style type="text/css">
+    .modal {
+      display: none;
+    }
+
+    /* when the dialog is open by its default method it adds a open tag on the element */
+    .modal[open] {
+      display: flex;
+    }
+
+    .modal[open]::backdrop {
+      animation: backdrop-fade 2s ease forwards;
+    }
+
+    .modal.close::backdrop {
+      animation: backdrop-fade 3s ease backwards;
+      animation-direction: reverse;
+    }
+
+    @keyframes backdrop-fade {
+      from {
+        background: transparent;
+      }
+
+      to {
+        background: rgba(0, 0, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+
+    <p><a
+        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog</a>
+    </p>
+    <p><a
+        href="https://web.dev/articles/building/a-dialog-component">https://web.dev/articles/building/a-dialog-component</a>
+    </p>
+    <p><a
+        href="https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element">https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element</a>
+    </p>
+    <p><a
+        href="https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html">https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html</a>
+    </p>
+    <p><a href="https://github.com/GoogleChrome/dialog-polyfill">Lib support old browser</a></p>
+
+    <button onclick="openModal()">open modal</button>
+    <dialog class="modal">
+      <button onclick="closeModal()">close modal</button>
+    </dialog>
+
+    <script>
+        const dialog = document.querySelector('.modal')
+
+        function openModal() {
+          dialog.showModal(); // default dialog method
+        }
+
+        function closeModal() {
+          dialog.classList.add('close'); // run animation here
+
+          dialog.addEventListener('animationend', () => {
+            dialog.classList.remove('close')
+            dialog.close(); // then run the default close method
+          }, { once: true }); // add this to prevent bugs when reopening the modal
+        }
+    </script>
+</body>
+
+</html>
