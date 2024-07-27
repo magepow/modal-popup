@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dialog HTML</title>
+    <style  type="text/css">
+
+        .content {
+            height: 5000px;
+        }
+
+        dialog  {
+            animation:  fade-out  0.7s  ease-out;
+            border: 1px solid red;
+        }
+
+        dialog {
+            padding: 0;
+        }
+
+        .dialog-box {
+            min-width: 800px;
+            min-height: 400px;
+        }
+
+        dialog[open]  {
+            animation:  fade-in 0.7s  ease-out;
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+
+        dialog[open]::backdrop  {
+            animation:  backdrop-fade-in  0.7s  ease-out  forwards;
+        }
+
+        /*  Animation keyframes */
+
+        @keyframes  fade-in {
+            0%  {
+                opacity:  0;
+                transform:  scaleY(0);
+                display:  none;
+            }
+
+            100%  {
+                opacity:  1;
+                transform:  scaleY(1);
+                display:  block;
+            }
+        }
+
+        @keyframes  fade-out  {
+            0%  {
+                opacity:  1;
+                transform:  scaleY(1);
+                display:  block;
+            }
+
+            100%  {
+                opacity:  0;
+                transform:  scaleY(0);
+                display:  none;
+            }
+        }
+
+        @keyframes  backdrop-fade-in  {
+            0%  {
+                background-color: rgb(0 0 0 / 0%);
+            }
+
+            100%  {
+                background-color: rgb(0 0 0 / 25%);
+            }
+        }
+
+        body,
+        button  {
+            font-family:  system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog</a></p>
+        <p><a href="https://web.dev/articles/building/a-dialog-component">https://web.dev/articles/building/a-dialog-component</a></p>
+        <p><a href="https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element">https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element</a></p>
+        <p><a href="https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html">https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html</a></p>
+        <p><a href="https://github.com/GoogleChrome/dialog-polyfill">Lib support old browser</a></p>
+        <p><a href="https://stackoverflow.com/questions/49122562/dialog-element-open-event">https://stackoverflow.com/questions/49122562/dialog-element-open-event</a></p>
+       
+       <div class="content">
+            Testt
+        </div>
+
+        <dialog id="dialog">
+            <div class="dialog-box">
+                Content here
+                <button class="close">close</button>
+            </div>
+        </dialog>
+ 
+
+        <button class="show">Show Modal</button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function  (event) {
+                const dialog  = document.getElementById("dialog");
+                const showBtn = document.querySelector(".show");
+                const closeBtn  = document.querySelector(".close");
+
+                function openCheck(dialog) {
+                      if (dialog.open) {
+                        console.log("Dialog open");
+                      } else {
+                        console.log("Dialog closed");
+                      }
+                    }
+
+                dialog.addEventListener("close", () => {
+                  openCheck(dialog);
+                });
+
+                /* Create open event */
+                const dialogs_observer = new MutationObserver( records => {
+                  records.forEach( (record) => {
+                    if( record.attributeName !== "open" ) { return; }
+                    if( record.target.hasAttribute( "open" ) ) {
+                      record.target.dispatchEvent( new CustomEvent( 'open' ) );
+                    }  
+                  } );
+                } );
+
+                dialogs_observer.observe( dialog, { attributes: true } );
+
+                /* end ereate open event */
+
+                dialog.addEventListener("open", () => {
+                  openCheck(dialog);
+                });
+
+                dialog.showModal();
+
+                /* Close click outside dialog use css padding: 0px */
+                dialog.addEventListener("click", function(event){
+                    if (event.target === dialog) {
+                        dialog.close();
+                    }
+                });
+
+                closeBtn.addEventListener("click",  ()  =>  {
+                    dialog.close();
+                });
+            });
+        </script>
+</body>
+
+</html>
