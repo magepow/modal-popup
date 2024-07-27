@@ -74,6 +74,7 @@
         <p><a href="https://web.dev/articles/building/a-dialog-component">https://web.dev/articles/building/a-dialog-component</a></p>
         <p><a href="https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element">https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element</a></p>
         <p><a href="https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html">https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html</a></p>
+        <p><a href="https://github.com/GoogleChrome/dialog-polyfill">Lib support old browser</a></p>
 
         <dialog id="dialog">
             Content here
@@ -93,7 +94,7 @@
 
                 /* Close click outside dialog */
                 dialogElem.addEventListener("click", function(event){
-                    if (event.target === dialog) {
+                    if (event.target === dialogElem) {
                         dialogElem.close();
                     }
                 });
