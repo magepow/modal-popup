@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dialog HTML</title>
+    <style  type="text/css">
+        dialog  {
+            animation:  fade-out  0.7s  ease-out;
+            border: 1px solid red;
+        }
+
+        dialog[open]  {
+            animation:  fade-in 0.7s  ease-out;
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+
+        dialog[open]::backdrop  {
+            animation:  backdrop-fade-in  0.7s  ease-out  forwards;
+        }
+
+        /*  Animation keyframes */
+
+        @keyframes  fade-in {
+            0%  {
+                opacity:  0;
+                transform:  scaleY(0);
+                display:  none;
+            }
+
+            100%  {
+                opacity:  1;
+                transform:  scaleY(1);
+                display:  block;
+            }
+        }
+
+        @keyframes  fade-out  {
+            0%  {
+                opacity:  1;
+                transform:  scaleY(1);
+                display:  block;
+            }
+
+            100%  {
+                opacity:  0;
+                transform:  scaleY(0);
+                display:  none;
+            }
+        }
+
+        @keyframes  backdrop-fade-in  {
+            0%  {
+                background-color: rgb(0 0 0 / 0%);
+            }
+
+            100%  {
+                background-color: rgb(0 0 0 / 25%);
+            }
+        }
+
+        body,
+        button  {
+            font-family:  system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog</a></p>
+        <p><a href="https://web.dev/articles/building/a-dialog-component">https://web.dev/articles/building/a-dialog-component</a></p>
+        <p><a href="https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element">https://tympanus.net/codrops/2021/10/06/how-to-implement-and-style-the-dialog-element</a></p>
+        <p><a href="https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html">https://jirengu.github.io/css-you-should-know/en/meet-the-new-dialog-element.html</a></p>
+
+        <dialog id="dialog">
+            Content here
+            <button class="close">close</button>
+        </dialog>
+        <dialog id="dialog2">
+            Content here2
+            <button class="close">close2</button>
+        </dialog>
+
+        <button class="show">Show Modal</button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function  (event) {
+                const dialogElem  = document.getElementById("dialog");
+                const dialogElem2  = document.getElementById("dialog2");
+                const showBtn = document.querySelector(".show");
+                const closeBtn  = dialogElem.querySelector(".close");
+                const closeBtn2  = dialogElem2.querySelector(".close");
+
+                showBtn.addEventListener("click", ()  =>  {
+                    dialogElem.showModal();
+                    dialogElem2.showModal();
+                });
+
+                dialogElem.addEventListener("click", function(event){
+                    if (event.target === dialog) {
+                        dialogElem.close();
+                    }
+                });
+
+                closeBtn.addEventListener("click",  ()  =>  {
+                    dialogElem.close();
+                });
+                closeBtn2.addEventListener("click",  ()  =>  {
+                    dialogElem2.close();
+                });
+            });
+        </script>
+</body>
+
+</html>
