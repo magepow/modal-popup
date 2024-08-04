@@ -119,6 +119,7 @@
 
       <script>
         document.addEventListener("DOMContentLoaded", function (event) {
+          if(document.body.classList.contains('howdy')) MicroModal.close();
           MicroModal.show('modal-1',{
             onShow: () => document.body.classList.add('howdy'),
             onClose: () => document.body.classList.remove('howdy'),
@@ -126,7 +127,8 @@
             openClass: 'open'
           });
           /* Close other before open new */
-          MicroModal.close();
+          // MicroModal.close();
+          if(document.body.classList.contains('howdy')) MicroModal.close();
           MicroModal.show('modal-2',{
             onShow: () => document.body.classList.add('howdy'),
             onClose: () => document.body.classList.remove('howdy'),
