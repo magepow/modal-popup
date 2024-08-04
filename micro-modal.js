@@ -87,6 +87,7 @@ if  (!customElements.get("micro-modal"))  {
             popup = popup.replace('{{modalFooter}}', footer);
 
             self.innerHTML = popup;
+            if(document.body.classList.contains('howdy')) MicroModal.close();
             MicroModal.show(self.modalId, {
                 onShow: () => document.body.classList.add('howdy'),
                 onClose: () => {
