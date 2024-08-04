@@ -87,10 +87,12 @@ if  (!customElements.get("micro-modal"))  {
             popup = popup.replace('{{modalFooter}}', footer);
 
             self.innerHTML = popup;
-
             MicroModal.show(self.modalId, {
                 onShow: () => document.body.classList.add('howdy'),
-                onClose: () => document.body.classList.remove('howdy'),
+                onClose: () => {
+                    document.body.classList.remove('howdy');
+                    if(self.dataset.clean) self.remove();
+                },
                 awaitCloseAnimation: true,
                 openClass: 'open'
             });
